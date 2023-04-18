@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 sh 'printenv'
-                sh 'mvn deploy -Dmule.version=4.4.0 -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW}'
+                sh 'mvn deploy -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW}'
             }
         }
     }
