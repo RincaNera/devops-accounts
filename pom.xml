@@ -31,12 +31,12 @@
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
-						<username>${jenkins.username}</username>
-						<password>${jenkins.password}</password>
-						<environment>${jenkins.environment}</environment>
-						<applicationName>${jenkins.application.name}</applicationName>
-						<workers>${jenkins.workers}</workers>
-						<workerType>${jenkins.worker.type}</workerType>						
+						<username>Rinca2</username>
+						<password>6#Neliel@Rnc:any</password>
+						<environment>Sandbox</environment>
+						<applicationName>devops-accounts-ys1804</applicationName>
+						<workers>1</workers>
+						<workerType>MICRO</workerType>						
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
