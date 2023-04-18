@@ -31,12 +31,16 @@
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
-						<username>Rinca2</username>
-						<password>6#Neliel@Rnc:any</password>
-						<environment>Sandbox</environment>
-						<applicationName>devops-accounts-ys1804</applicationName>
-						<workers>1</workers>
-						<workerType>MICRO</workerType>						
+						<muleVersion>${mule.version}</muleVersion>
+						<username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
+						<applicationName>${artifactId}-${maven.build.timestamp}</applicationName>
+						<environment>${cloundhub.env}</environment>
+						<businessGroup>${anypoint.businessGroup}</businessGroup>
+						<region>${cloudhub.region}</region>
+						<uri>${anypoint.uri}</uri>
+						<workerType>${cloudhub.workerType}</workerType>
+						<workers>${cloudhub.workers}</workers>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
