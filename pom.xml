@@ -36,7 +36,7 @@
 						<password>${anypoint.password}</password>
 						<applicationName>devops-accounts</applicationName>
 						<environment>sandbox</environment>
-						<uri>${anypoint.uri}</uri>
+						<uri>https://anypoint.mulesoft.com</uri>
 						<workerType>MICRO</workerType>
 						<workers>1</workers>
 					</cloudHubDeployment>
