@@ -1,11 +1,13 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven 3.9.1'
-        jdk 'jdk11'
-    }
     stages {
         stage('deploy') {
+            agent {
+                tools {
+                    maven 'Maven 3.9.1'
+                    jdk 'jdk11'
+                }
+            }
             environment {
                 ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
             }
