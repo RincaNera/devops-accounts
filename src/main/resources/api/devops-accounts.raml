@@ -1,0 +1,15 @@
+#%RAML 1.0
+title: devops-accounts
+
+/accounts:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              [
+                {"accountID": "AC123", "name": "The first account"},
+                {"accountID": "AC456", "name": "The second account"}
+              ]
+              
