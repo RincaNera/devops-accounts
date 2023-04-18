@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('deploy') {
             tools {
-                maven 'Maven 3.8.6'
+                maven 'Maven 3.8.1'
                 jdk 'jdk11'
             }
             environment {
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 sh 'printenv'
-                sh 'mvn clean package deploy -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy'
+                sh 'mvn clean deploy -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy'
             }
         }
     }
