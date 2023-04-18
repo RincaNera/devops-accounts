@@ -34,13 +34,11 @@
 						<muleVersion>${mule.version}</muleVersion>
 						<username>${anypoint.username}</username>
 						<password>${anypoint.password}</password>
-						<applicationName>${artifactId}-${maven.build.timestamp}</applicationName>
-						<environment>${cloundhub.env}</environment>
-						<businessGroup>${anypoint.businessGroup}</businessGroup>
-						<region>${cloudhub.region}</region>
+						<applicationName>devops-accounts</applicationName>
+						<environment>sandbox</environment>
 						<uri>${anypoint.uri}</uri>
-						<workerType>${cloudhub.workerType}</workerType>
-						<workers>${cloudhub.workers}</workers>
+						<workerType>MICRO</workerType>
+						<workers>1</workers>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
