@@ -11,7 +11,6 @@ pipeline {
             }
             steps {
                 echo 'Deploying...'
-                sh 'printenv'
                 sh 'mvn clean deploy -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy'
             }
         }
