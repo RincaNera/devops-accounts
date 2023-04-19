@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 sh 'printenv'
-                sh 'mvn -e clean deploy -Denvironment=Sandbox2 -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy'
+                sh 'mvn -e clean deploy -DmuleEnvironment=Sandbox2 -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy'
             }
         }
     }
