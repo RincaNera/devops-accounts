@@ -1,13 +1,8 @@
 def conf = {}
+def envParams = readJSON(file: "./config.json").envParams
 pipeline {
     agent any
     stages {
-        stage('configuration') {
-            steps {
-                // Lire le fichier JSON dynamiquement en utilisant JSONRead()
-                def envParams = readJSON(file: "./config.json").envParams
-            }
-        }
         stage('deploy') {
             tools {
                 maven 'Maven 3.8.1'
