@@ -9,6 +9,12 @@ pipeline {
                 }
             }
         }
+        stage('test') {
+            steps {
+                echo 'Testing...'
+                sh 'mvn test'
+            }
+        }
         stage('deploy') {
             tools {
                 maven 'Maven 3.8.1'
