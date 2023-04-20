@@ -1,12 +1,11 @@
 def conf = {}
-def envParams = {}
 pipeline {
     agent any
     stages {
         stage('configuration') {
             steps {
                 // Lire le fichier JSON dynamiquement en utilisant JSONRead()
-                envParams = readJSON(file: "./config.json").envParams
+                def envParams = readJSON(file: "./config.json").envParams
             }
         }
         stage('deploy') {
