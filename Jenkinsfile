@@ -6,7 +6,7 @@ pipeline {
         stage('configuration') {
             steps {
                 script {
-                    readJSON(file: "./config.json")
+                    envParams = readJSON(file: "./config.json").envParams
                 }
             }
         }
