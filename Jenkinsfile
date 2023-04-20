@@ -5,8 +5,9 @@ pipeline {
     stages {
         stage('configuration') {
             steps {
-                // Lire le fichier JSON dynamiquement en utilisant JSONRead()
-                readJSON(file: "./config.json")
+                script {
+                    readJSON(file: "./config.json")
+                }
             }
         }
         stage('deploy') {
@@ -19,7 +20,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying...'
-                sh 'mvn clean deploy -Denvironment=${envParams.environment} -DapplicationName=${envParams.applicationName} -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy'
+                //sh 'mvn clean deploy -Denvironment=${envParams.environment} -DapplicationName=${envParams.applicationName} -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy'
             }
         }
     }
