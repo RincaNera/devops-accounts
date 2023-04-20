@@ -16,7 +16,7 @@ pipeline {
         stage('test') {
             steps {
                 echo 'Testing...'
-                sh 'mvn -e clean test'
+                sh 'mvn clean install test'
             }
         }
         stage('deploy') {
