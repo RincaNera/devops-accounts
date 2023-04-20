@@ -1,6 +1,12 @@
+def conf = {}
+def envParams = {}
 pipeline {
     agent any
     stages {
+        stage('configuration') {
+            // Lire le fichier JSON dynamiquement en utilisant JSONRead()
+            envParams = readJSON(file: "./config.json").envParams
+        }
         stage('deploy') {
             tools {
                 maven 'Maven 3.8.1'
@@ -11,8 +17,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying...'
-                sh 'printenv'
-                sh 'mvn clean deploy -Denvironment=Sandbox -DapplicationName=devops-accounts -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy'
+                sh 'mvn clean deploy -Denvironment=${envParams.environment} -DapplicationName=${envParams.applicationName} -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy'
             }
         }
     }
