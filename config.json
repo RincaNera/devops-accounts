@@ -1,0 +1,6 @@
+{
+    "envParams": {
+        "applicationName": "devops-accounts",
+        "environment": "test"
+    }
+}

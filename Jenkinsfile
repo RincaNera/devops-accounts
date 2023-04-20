@@ -1,6 +1,14 @@
 pipeline {
     agent any
     stages {
+        stage('configuration') {
+            steps {
+                echo 'Reading configuration file'
+                script {
+                    envParams = readJSON(file: "./config.json").envParams
+                }
+            }
+        }
         stage('deploy') {
             tools {
                 maven 'Maven 3.8.1'
@@ -11,8 +19,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying...'
-                sh 'printenv'
-                sh 'mvn -e clean deploy -Denvironment=test -DapplicationName=devops-accounts-test -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy'
+                sh """mvn clean deploy -Denvironment=${envParams.environment} -DapplicationName=${envParams.applicationName}-${env.BRANCH_NAME} -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW} -DmuleDeploy"""
             }
         }
     }
