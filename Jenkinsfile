@@ -4,8 +4,10 @@ pipeline {
     agent any
     stages {
         stage('configuration') {
-            // Lire le fichier JSON dynamiquement en utilisant JSONRead()
-            envParams = readJSON(file: "./config.json").envParams
+            steps {
+                // Lire le fichier JSON dynamiquement en utilisant JSONRead()
+                envParams = readJSON(file: "./config.json").envParams
+            }
         }
         stage('deploy') {
             tools {
